@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example 3</title>
+</head>
+<body>
+  <h2>JavaScript Example: Positive or Negative Numbers</h2>
+  <p id="demo"></p>
+
+  <script>
+    // Variables
+    let numbers = [-4, 7, -9, 12, 0, 5];
+    let result = "";
+
+    // Loop and Control Statement
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] > 0) {
+        result += numbers[i] + " is positive.<br>";
+      } else if (numbers[i] < 0) {
+        result += numbers[i] + " is negative.<br>";
+      } else {
+        result += numbers[i] + " is zero.<br>";
+      }
+    }
+
+    // Operators
+    let product = 1;
+    for (let i = 0; i < numbers.length; i++) {
+      product *= numbers[i]; // multiplication operator
+    }
+
+    // Displaying Results
+    document.getElementById("demo").innerHTML =
+      "Numbers: " + numbers.join(", ") + "<br>" +
+      result +
+      "Product of all numbers: " + product;
+  </script>
+</body>
+</html>
+
