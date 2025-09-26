@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Mobile Example</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Mobile Page</h1>
+    <p>Click the buttons to show or hide a message:</p>
+    <button id="showMessage">Show Message</button>
+    <button id="hideMessage">Hide Message</button>
+
+    <div id="message" style="display:none;">Hello! This message is shown using jQuery.</div>
+
+    <script>
+        $(document).ready(function() {
+            $("#showMessage").click(function() {
+                $("#message").fadeIn();
+            });
+            $("#hideMessage").click(function() {
+                $("#message").fadeOut();
+            });
+        });
+    </script>
+</body>
+</html>
