@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firebase Contact Form - Ashutosh.Ghimire</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Ashutosh.Ghimire</h1>
+    <h2>Contact Us Form (Firebase Data Manager)</h2>
+
+    <form id="contactForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" placeholder="Enter first name" required />
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" placeholder="Enter last name" required />
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" placeholder="Enter email" required />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+
+    <h3>Contact Records</h3>
+    <table id="contactsTable">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="contactsList"></tbody>
+    </table>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
