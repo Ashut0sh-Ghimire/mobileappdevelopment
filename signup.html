@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Signup | Hisab-Kitab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Create Your Account</h2>
+
+    <!-- Email -->
+    <input type="email" id="signupEmail" placeholder="Email" required>
+
+    <!-- Password -->
+    <div class="password-wrapper">
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <span id="eyeSignup" class="toggle-password" onclick="togglePassword('signupPassword','eyeSignup')">👁️</span>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="password-wrapper">
+      <input type="password" id="signupConfirm" placeholder="Confirm Password" required>
+      <span id="eyeConfirm" class="toggle-password" onclick="togglePassword('signupConfirm','eyeConfirm')">👁️</span>
+    </div>
+
+    <!-- Signup Button -->
+    <button onclick="signup()">Signup</button>
+
+    <!-- Redirect to Login -->
+    <p>Already have an account? <a href="login.html">Login</a></p>
+  </div>
+
+  <!-- Main Script -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

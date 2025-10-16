@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login | Hisab-Kitab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Login</h2>
+
+    <!-- Email Input -->
+    <input type="email" id="loginEmail" placeholder="Email" required>
+
+    <!-- Password Input with Eye Icon -->
+    <div class="password-wrapper">
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <span id="eyeLogin" class="toggle-password" onclick="togglePassword('loginPassword','eyeLogin')">👁️</span>
+    </div>
+
+    <!-- Login Button -->
+    <button onclick="login()">Login</button>
+
+    <!-- Link to Signup -->
+    <p>Don't have an account? <a href="signup.html">Signup</a></p>
+  </div>
+
+  <!-- JS -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

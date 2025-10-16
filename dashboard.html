@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard | Hisab-Kitab</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- ✅ Include Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="navbar">
+  <h2>Hisab-Kitab</h2>
+  <div class="nav-icons">
+
+    <!-- ✅ Wrap settings button + dropdown -->
+    <div class="settings-wrapper" style="position: relative;">
+      <button class="icon-btn" id="settingsBtn" onclick="toggleSettingsDropdown()">⚙️ Settings</button>
+
+      <div id="settingsDropdown" class="settings-dropdown hidden">
+        <button onclick="openProfile()">👤 Profile</button>
+        <button onclick="openChangePassword()">🔑 Change Password</button>
+        <button onclick="openExpenseHistory()">📜 Expense History</button>
+        <button onclick="logout()">🚪 Logout</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <!-- Dashboard Stats -->
+    <div class="stats-vertical">
+      <div class="card" id="remainingBalance">Remaining Balance: Rs. 0</div>
+      <div class="card" id="thisMonthSpent">This Month Spent: Rs. 0</div>
+      <div class="card" id="prevMonthSpent">Previous Month Spent: Rs. 0</div>
+      <button class="add-expense-btn" onclick="openExpenseModal()">Add Expense</button>
+    </div>
+
+    <!-- Centered Pie Chart -->
+    <div class="chart-container">
+      <div class="card chart-card">
+        <canvas id="expenseChart" width="300" height="300"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Expense Modal -->
+  <div id="expenseModal" class="settings-modal hidden">
+    <h3>Add Expense</h3>
+    <input type="text" id="expenseNote" placeholder="Note">
+    <input type="number" id="expenseAmount" placeholder="Amount">
+    <select id="expenseCategory">
+      <option value="">Select Category</option>
+      <option value="Food">Food</option>
+      <option value="Rent">Rent</option>
+      <option value="Entertainment">Entertainment</option>
+      <option value="Transport">Transport</option>
+      <option value="Other">Other</option>
+    </select>
+    <button onclick="saveExpense()">Save</button>
+    <button onclick="closeModal('expenseModal')">Close</button>
+  </div>
+<!-- Expense History Modal -->
+<div id="historyModal" class="settings-modal hidden">
+  <h3>Expense History</h3>
+  <div id="expenseList"><p>Loading...</p></div>
+  <div style="text-align:center; margin-top:15px;">
+    <button onclick="closeModal('historyModal')">Close</button>
+  </div>
+</div>
+
+  <!-- Profile Modal (from previous update) -->
+  <div id="profileModal" class="settings-modal hidden">
+    <h3>User Profile</h3>
+    <div class="profile-display">
+      <p><strong>Email:</strong> <span id="displayEmail">-</span></p>
+      <p><strong>Name:</strong> <span id="displayName">-</span></p>
+      <p><strong>Age:</strong> <span id="displayAge">-</span></p>
+      <p><strong>Total Budget:</strong> Rs. <span id="displayBudget">-</span></p>
+    </div>
+
+    <button onclick="editProfileMode()">Edit</button>
+    <button onclick="closeModal('profileModal')">Close</button>
+
+    <div id="editProfileForm" class="hidden edit-profile-form">
+      <input type="text" id="editName" placeholder="Full Name">
+      <input type="number" id="editAge" placeholder="Age">
+      <input type="number" id="editBudget" placeholder="Monthly Budget">
+      <button onclick="saveProfile()">Save</button>
+      <button onclick="cancelEditProfile()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div id="passwordModal" class="settings-modal hidden">
+    <h3>Change Password</h3>
+    <input type="password" id="oldPassword" placeholder="Old Password">
+    <input type="password" id="newPassword" placeholder="New Password">
+    <button onclick="savePassword()">Save</button>
+    <button onclick="closeModal('passwordModal')">Close</button>
+  </div>
+<script>
+  // ✅ Block browser back button after login
+  window.history.pushState(null, "", window.location.href);
+  window.onpopstate = function () {
+    // Go back to login (or loading) page if back button is pressed
+    window.location.replace("index.html"); 
+  };
+</script>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
